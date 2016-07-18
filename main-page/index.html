@@ -12,17 +12,17 @@
     <title>social Ware</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Theme CSS -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,7 +69,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="../pages/dashborad.html">Dashboard</a>
+                        <a class="page-scroll btn btn-default" id="dash" href="../pages/login.html">Dashboard <i class="fa fa-arrow-circle-right"></i></a>
                     </li>
                 </ul>
             </div>
@@ -84,12 +84,11 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Welcome To Our site!</div>
                 <div class="intro-heading">If you want to start earning some money this is the place!</div>
-                <a href="../pages/login.html" class="page-scroll btn btn-xl">take a project</a>
-				 <a href="../pages/login.html" class="page-scroll btn btn-xl">publish project request</a>
+                <a id="devloper" class=" btn btn-xl">take a project</a>
+				 <a id="customer" class=" btn btn-xl">publish project request</a>
             </div>
         </div>
     </header>
-
     <!-- Services Section -->
     <section id="services">
         <div class="container">
@@ -143,7 +142,7 @@
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-th-list fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
@@ -164,7 +163,7 @@
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-th-list fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
@@ -190,7 +189,7 @@
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-th-list fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
@@ -213,7 +212,7 @@
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-th-list fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/portfolio/golden.png" class="img-responsive" alt="">
@@ -234,7 +233,7 @@
                     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-th-list fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/portfolio/escape.png" class="img-responsive" alt="">
@@ -256,7 +255,7 @@
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-th-list fa-3x"></i>
                             </div>
                         </div>
                         <img src="img/portfolio/dreams.png" class="img-responsive" alt="">
@@ -400,7 +399,7 @@
 			
                 <div class="col-lg-12">
 				
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm"  novalidate>
 					
                         
                             <div class="col-md-6">
@@ -632,7 +631,7 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal 6 -->
+    <!--  Modal -->
     <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -660,10 +659,10 @@
     </div>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -674,6 +673,25 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#devloper").click(function () {
+                sessionStorage.setItem('role', 'developer');
+
+                window.location="../pages/login.html";
+            });
+            $("#customer").click(function () {
+                sessionStorage.setItem('role', 'customer');
+                window.location="../pages/login.html";
+            });
+            /*$.get( "login.html?role=", function( data ) {
+                console.log(data);
+            });*/
+
+        });
+    </script>
 
 </body>
 

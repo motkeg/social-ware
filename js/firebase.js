@@ -1,24 +1,50 @@
 
+
+$(document).ready(function() {
+    var role= sessionStorage.getItem('role');
+    if (role=='developer'){
+        $("#e_pwd").addClass("hidden");
+
+    }
+
+    //console.log(role);
+
+
+});
+
+
+
+
+
+
 // authentication  moudels
 
 function Create_user() {
 
-    var email=$("#email-login").val();
+    var email=$("#email").val();
     console.log(email);
 
-    var password=$("#pwd-login").val();
+    var password=$("#pwd").val();
     console.log(password);
 
 
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
+
         var errorCode = error.code;
         var errorMessage = error.message;
+        alert(errorMessage);
+        window.location="../main-page/index.html";
 
         // ...
     });
-    if(verify())
-       alert("user create successfuly! wait for verifiying..");
+    Cookies.set('login_socialWare', email, { expires:1});
+    if (email)
+        window.location="dashborad.html";
+    /*if(verify())
+       alert("user create successfuly! wait for verifiying..");*/
+
+
 
 
 
@@ -44,6 +70,7 @@ function sign_in() {
    
   
      alert("login success!");
+    Cookies.set('login_socialWare', email, { expires:1});
     window.location="dashborad.html";
 }
 
@@ -58,7 +85,9 @@ function google_Auth() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-           //alert(user);
+        Cookies.set('login_socialWare', user, { expires:1});
+        console.log(Cookies.get("login_socialWare"));
+        window.location="dashborad.html";
            //write(400,"moti",u)
     }).catch(function(error) {
         // Handle Errors here.
@@ -82,7 +111,8 @@ function GitHub_Auth() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        // ...
+        Cookies.set('login_socialWare', user, { expires:1});
+        window.location="dashborad.html";
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -107,7 +137,9 @@ function facebook_Auth() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        // ...
+        Cookies.set('login_socialWare', user, { expires:1});
+        window.location="dashborad.html";
+
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -124,10 +156,14 @@ function facebook_Auth() {
 function sign_out() {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
+        Cookies.remove("login_socialWare");
+        window.location="../main-page/index.html";
     }, function(error) {
         // An error happened.
         console.log(error.message);
     });
+
+
 }
 
 
@@ -144,7 +180,6 @@ function getUser() {
          console.log(user);
 
         }
-
     //var user = firebase.auth().currentUser;
      // No user is signed in.
     if (user != null) {
