@@ -1,11 +1,18 @@
 
 
 $(document).ready(function() {
-    var role= sessionStorage.getItem('role');
-    if (role=='developer'){
-        $("#e_pwd").addClass("hidden");
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBBdJWpq72GNHNDH0LnzRKx7NkfvXhTk9o",
+        authDomain: "social-ware-74e19.firebaseapp.com",
+        databaseURL: "https://social-ware-74e19.firebaseio.com",
+        storageBucket: "social-ware-74e19.appspot.com",
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
 
-    }
+
+
 
     //console.log(role);
 
