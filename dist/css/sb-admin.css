@@ -11,6 +11,10 @@
     color:#00d6b2;
 
 }
+.inner-element{
+    background: #8c8c8c;
+    color:#00d6b2;
+}
 #main-nav a:hover,#side-bar a :hover{
     color:  #e3e3e3;
 }
